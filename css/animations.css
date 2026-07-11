@@ -1,0 +1,101 @@
+/* =========================================================================
+   Danielson Land Co. — Animations
+   Scroll-reveal base states + keyframes. Driven by IntersectionObserver
+   in js/animations.js (adds .is-visible).
+   ========================================================================= */
+
+/* ---------- Scroll reveal base states ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(38px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  will-change: opacity, transform;
+}
+.reveal.fade-left  { transform: translateX(-46px); }
+.reveal.fade-right { transform: translateX(46px); }
+.reveal.fade-up    { transform: translateY(50px); }
+.reveal.scale-in   { transform: scale(0.94); }
+.reveal.blur-in    { filter: blur(12px); }
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Stagger children via inline --i delay set by JS */
+.reveal[style*="--i"] { transition-delay: calc(var(--i) * 90ms); }
+
+/* ---------- Keyframes ---------- */
+@keyframes ripple {
+  to { transform: scale(2.6); opacity: 0; }
+}
+
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  40%  { transform: scaleY(1); transform-origin: top; }
+  60%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(189,85,64,0.45); }
+  70%      { box-shadow: 0 0 0 16px rgba(189,85,64,0); }
+}
+
+/* ---------- Applied helpers ---------- */
+.float-soft { animation: floatSoft 6s ease-in-out infinite; }
+
+.pulse-gold { animation: pulseGold 2.4s var(--ease) infinite; }
+
+/* Hover lift utility */
+.lift { transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+.lift:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+
+/* Image zoom on hover */
+.zoom-wrap { overflow: hidden; }
+.zoom-wrap img { transition: transform 1.1s var(--ease); }
+.zoom-wrap:hover img { transform: scale(1.06); }
+
+/* Lazy-image fade-in when loaded */
+img.lazy { opacity: 0; transition: opacity 0.8s ease; background: var(--color-sand); }
+img.lazy.loaded { opacity: 1; }
+
+/* Shimmer placeholder for loading media */
+.shimmer {
+  background: linear-gradient(90deg, var(--color-sand) 25%, #eee6d5 37%, var(--color-sand) 63%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+/* Parallax layer (translated via JS) */
+.parallax { will-change: transform; }
+
+/* Counter number visual pop when running */
+.stat__num.counting { color: var(--color-primary); }
+
+/* Marquee-free subtle entrance for hero content */
+.hero__inner > * {
+  opacity: 0;
+  transform: translateY(28px);
+  animation: heroIn 1s var(--ease) forwards;
+}
+.hero__inner > *:nth-child(1) { animation-delay: 0.15s; }
+.hero__inner > *:nth-child(2) { animation-delay: 0.3s; }
+.hero__inner > *:nth-child(3) { animation-delay: 0.45s; }
+.hero__inner > *:nth-child(4) { animation-delay: 0.6s; }
+.hero__inner > *:nth-child(5) { animation-delay: 0.72s; }
+
+@keyframes heroIn {
+  to { opacity: 1; transform: none; }
+}

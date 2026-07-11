@@ -1,0 +1,1 @@
+Place optimized brand images here. The pages currently load elegant, lazy-loaded photographic placeholders from the Unsplash CDN; swap in local files and update the <img src> paths to go fully offline.

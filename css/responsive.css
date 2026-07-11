@@ -1,0 +1,72 @@
+/* =========================================================================
+   Danielson Land Co. — Responsive Stylesheet
+   Breakpoints: 1080 (laptop), 860 (tablet), 620 (mobile)
+   Mobile-friendly, no horizontal scroll.
+   ========================================================================= */
+
+/* ---------- Laptop / small desktop ---------- */
+@media (max-width: 1080px) {
+  :root { --space-xl: 5.5rem; }
+  .footer__top { grid-template-columns: 1.4fr 1fr 1fr; }
+  .footer__brand { grid-column: 1 / -1; margin-bottom: 1rem; }
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 860px) {
+  :root { --nav-h: 72px; }
+
+  /* Reveal mobile nav */
+  .nav__links, .nav__cta.desktop-only { display: none; }
+  .nav__toggle { display: flex; }
+
+  /* Collapse grids */
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .stats, .process-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+  .value-cols { grid-template-columns: 1fr; gap: 2.4rem; }
+
+  /* Stack split layouts */
+  .split { grid-template-columns: 1fr; gap: 2.5rem; }
+  .split.reverse .split__media { order: -1; }
+  .compare { grid-template-columns: 1fr; }
+
+  .form__row { grid-template-columns: 1fr; }
+
+  .hero__sub { max-width: 100%; }
+  .hero { min-height: 92vh; }
+  .page-hero { min-height: 52vh; }
+
+  .footer__top { grid-template-columns: 1fr 1fr; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 620px) {
+  body { font-size: 1rem; }
+  .section { padding: 4rem 0; }
+
+  .grid-4, .grid-3, .grid-2,
+  .stats, .process-grid { grid-template-columns: 1fr; }
+
+  .btn { width: 100%; }
+  .btn-row { flex-direction: column; }
+  .hero .btn-row .btn, .cta-banner .btn-row .btn { width: 100%; }
+
+  .card, .testimonial, .compare__col { padding: 1.6rem; }
+  .property-card__meta { gap: 1rem; }
+
+  .timeline::before { left: 19px; }
+  .timeline__item { padding-left: 3.6rem; }
+  .timeline__dot { width: 26px; height: 26px; left: 6px; }
+
+  .footer__top { grid-template-columns: 1fr; }
+  .footer__bottom nav { flex-wrap: wrap; gap: 1rem; }
+
+  .cta-banner { border-radius: var(--radius-lg); }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
