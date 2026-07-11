@@ -664,7 +664,7 @@ p.lead {
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
-.stat { text-align: left; }
+.stat { text-align: left; display: flex; flex-direction: column; height: 100%; }
 .stat__num {
   font-family: var(--font-display);
   font-size: clamp(2.6rem, 4.5vw, 3.9rem);
@@ -681,7 +681,8 @@ p.lead {
   color: var(--color-text-muted);
 }
 .bg-dark .stat__label { color: var(--color-text-light-muted); }
-.stat__divider { height: 1px; background: var(--color-border); margin: 1rem 0 0; }
+.stat__divider { height: 1px; background: var(--color-border); margin-top: auto; }
+.stat__label { margin-bottom: 1rem; }
 
 /* Stat band on dark image */
 .stat-band {
