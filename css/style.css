@@ -1022,3 +1022,49 @@ p.lead {
   line-height: 1.2; color: var(--color-text);
 }
 .bg-dark .quote-lg { color: #fff; }
+
+/* -------------------------------------------------------------------------
+   Landing additions: sister bios, Our Why, traction band, welcome, podcasts
+   ------------------------------------------------------------------------- */
+.bio { display: flex; gap: 1.4rem; align-items: flex-start; }
+.bio__avatar {
+  width: 74px; height: 74px; border-radius: 50%; flex: none;
+  display: grid; place-items: center;
+  font-family: var(--font-display); font-size: 2rem; font-weight: 600;
+  color: #fff; background: var(--color-primary);
+}
+.bio__avatar.is-accent { background: var(--color-accent); }
+.bio__role {
+  display: block; margin: 3px 0 0.7rem;
+  font-family: var(--font-body); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent);
+}
+
+/* stat-band works on any background */
+.stat-band .stat__num { color: var(--color-accent-soft); }
+.stat-band .stat__label { color: rgba(255, 255, 255, 0.82); }
+
+/* Welcome / capital callout */
+.welcome-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-accent);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.8rem, 4vw, 3.2rem);
+  box-shadow: var(--shadow-sm);
+  display: flex; gap: 1.6rem; align-items: flex-start;
+}
+.welcome-card .bio__avatar { background: var(--color-accent); }
+
+/* Podcast cards */
+.podcast__meta {
+  display: block; margin-bottom: 0.55rem;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--color-accent);
+}
+.podcast__play {
+  width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center; margin-bottom: 1.1rem;
+  background: var(--color-primary); color: #fff;
+}
+@media (max-width: 720px) { .welcome-card { flex-direction: column; } }
