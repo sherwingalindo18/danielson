@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Danielson Land Co.">
+  <defs>
+    <clipPath id="dlc-circle"><circle cx="100" cy="100" r="99"/></clipPath>
+  </defs>
+  <g clip-path="url(#dlc-circle)">
+    <!-- base -->
+    <rect x="0" y="0" width="200" height="200" fill="#f7f1e2"/>
+    <!-- sunset bands (top) -->
+    <rect x="0" y="0"   width="200" height="40" fill="#c0523e"/>
+    <rect x="0" y="40"  width="200" height="26" fill="#ee9a3e"/>
+    <rect x="0" y="66"  width="200" height="8"  fill="#f2e4bd"/>
+    <!-- sunset bands (bottom, mirrored) -->
+    <rect x="0" y="126" width="200" height="8"  fill="#f2e4bd"/>
+    <rect x="0" y="134" width="200" height="26" fill="#ee9a3e"/>
+    <rect x="0" y="160" width="200" height="40" fill="#c0523e"/>
+    <!-- wordmark -->
+    <text x="100" y="107" text-anchor="middle" textLength="150" lengthAdjust="spacingAndGlyphs"
+          font-family="Manrope, 'Arial Black', Arial, sans-serif"
+          font-weight="800" font-size="30"
+          fill="#84c5b6">DANIELSON</text>
+    <text x="160" y="126" text-anchor="end" textLength="66" lengthAdjust="spacingAndGlyphs"
+          font-family="Manrope, Arial, sans-serif"
+          font-weight="700" font-size="13"
+          fill="#84c5b6">LAND CO.</text>
+  </g>
+  <circle cx="100" cy="100" r="97.5" fill="none" stroke="#6fb0a0" stroke-width="2.5"/>
+</svg>
