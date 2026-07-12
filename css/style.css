@@ -336,6 +336,16 @@ p.lead {
   border-bottom-color: var(--color-border);
 }
 
+/* When the mobile menu is open, drop the nav's backdrop-filter. A filtered
+   ancestor becomes the containing block for its position:fixed children,
+   which would clamp the slide-out panel and overlay to the nav bar and let
+   the page show through. Removing it re-anchors them to the viewport. */
+.nav.is-open,
+.nav.is-scrolled.is-open {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
 /* Brand */
 .brand { display: flex; align-items: center; gap: 0.7rem; z-index: 2; }
 .brand__mark { width: 40px; height: 40px; flex: none; }
